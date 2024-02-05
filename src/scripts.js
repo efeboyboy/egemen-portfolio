@@ -4,38 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
   var listItems = Array.from(paintingsContainer.querySelectorAll("li"));
   var batchSize = listItems.length; // This should match the original number of list items
 
-  // Initialize Magnifier.js with the first image
-  var evt = new Event(),
-    magnifier = new Magnifier(evt),
-    firstItem = listItems[0];
-
-  magnifier.attach({
-    thumb: "#painting",
-    large: firstItem.getAttribute("data-large"),
-    mode: "inside",
-    zoom: 3,
-    zoomable: true,
-  });
-
-  // Update the function to reinitialize Magnifier.js whenever an image becomes active
-  function updateCoverImage(item) {
-    if (!item.classList.contains("active")) {
-      listItems.forEach(function (elem) {
-        elem.classList.remove("active");
-      });
-      item.classList.add("active");
-      coverImage.src = item.getAttribute("data-cover");
-      // Update Magnifier.js with the new image
-      magnifier.attach({
-        thumb: "#painting",
-        large: item.getAttribute("data-large"),
-        mode: "inside",
-        zoom: 3, // You can adjust the zoom level as needed
-        zoomable: true,
-      });
-    }
-  }
-
   function updateCoverImage(item) {
     if (!item.classList.contains("active")) {
       listItems.forEach(function (elem) {
