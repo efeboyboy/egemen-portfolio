@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
       });
       item.classList.add("active");
       coverImage.src = item.getAttribute("data-cover");
+      // Update Magnifier.js with the new image
+      updateMagnifier(coverImage);
     }
   }
 
